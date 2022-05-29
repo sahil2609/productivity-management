@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            box-sizing: border-box;
+            min-width:400px;
+        }
+        .background {
+            background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
+            background-size: 400% 400%;
+            animation: Gradient 15s ease infinite;
+            position: relative;
+            height: 105vh;
+            width: 100%;
+            overflow: hidden;
+            padding:0;
+            margin:0px;
+        }
+        .container-fluid{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background: #FFF;
+        }
+        .cube {
+            position: absolute;
+            top: 80vh;
+            left: 45vw;
+            width: 4px;
+            height: 4px;
+            border: solid 0.3px #D7D4E4;
+            transform-origin: top left;
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            animation: cube 12s ease-in forwards infinite;
+        }
+
+        .cube:nth-child(2n) {
+            border-color: #FFF ;
+        }
+        .cube:nth-child(2) {
+            animation-delay: 2s;
+            left: 25vw;
+            top: 40vh;
+        }
+        .cube:nth-child(3) {
+            animation-delay: 4s;
+            left: 75vw;
+            top: 50vh;
+        }
+        .cube:nth-child(4) {
+            animation-delay: 6s;
+            left: 90vw;
+            top: 10vh;
+        }
+        .cube:nth-child(5) {
+            animation-delay: 8s;
+            left: 10vw;
+            top: 85vh;
+        }
+        .cube:nth-child(6) {
+            animation-delay: 10s;
+            left: 50vw;
+            top: 10vh;
+        }
+
+        header{
+            position: absolute;
+            top:0%;
+            left: 0%;
+            width:100%;
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            color: #FFF;
+            float: right;
+        }
+        nav ul{
+            list-style: none;
+            
+        }
+        nav ul li {
+            float: left;
+            transition: .5s;
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: #EFEEF5;
+            transition: .5;
+            font-size: 15px;
+            margin-left:16px;
+        }
+        nav ul li:hover a{
+            text-decoration: none;
+            color: #591BC5;
+        }
+        nav ul li:hover{
+            height: 90px;
+            padding-top: 20px;
+            margin-top: -10px;
+            background: #EFEEF5;
+            text-decoration: none;
+            transform: skew(15deg);
+        }
+
+        .header-content{
+            margin-top:25%;
+            text-align: center;
+            color:  #EFEEF5;
+        }
+        .header-content h1{
+            text-transform: uppercase;
+            font-size: 3em;
+            letter-spacing: 1px;
+        }
+        .header-content p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .header-content button{
+            width: 140px;
+            margin:20px 10px;
+            color: #591BC5;
+            font-size: 17px;
+            border:1px solid #EFEEF5;
+            font-weight: 500;
+            background: #EFEEF5;
+            border-radius: 20px;
+            padding: 10px;
+            cursor:pointer;
+            transition: .3s;
+        }
+        .header-content button:hover{
+            border-radius: 0;
+        }
+
+        h5{
+            font-size: 9px;
+        }
+        br {
+            display: block;
+            margin: 2px 0;
+        }
+
+        .in_data{
+            width: 100px;
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+            }
+        @keyframes cube {
+            from {
+                transform: scale(0) rotate(0deg) translate(-50%, -50%);
+                opacity: 1;
+            }
+            to {
+                transform: scale(20) rotate(960deg) translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+        
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="background">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="clock.html" target="_blank"><h6>Set Alarm &ensp;</h6></a></li>
+                    <li><a href="options.html" target="_blank"><h6>Block Webistes &ensp;</h6></a></li>
+                    <li style="margin-right: 35px;"><a href="break.html" target="_blank"><h6 >Take a break &ensp;</h6></a></li>
+                </ul>
+            </nav>
+            <section class="header-content">
+                <h1 >Workonic</h1>
+                <p>Chrome Extension to bring five of the most disconnected features of productivity management into one incredible app.
+                <br><br><h3><b>Time spent by you:</b></h3>
+                
+                </p>
+                <h3 id = "hour"style="display:inline;clear:none;"></h3> <h3 style="display:inline;clear:none;">&ensp;:&ensp;</h3>  <h3 id="minute"style="display:inline;clear:none;"></h3> <h3 style="display:inline;clear:none;">&ensp;:&ensp;</h3><h3 id="seconds"style="display:inline;clear:none;"></h3>
+                <div style="margin-top: -4px;"><h5 style="display:inline;clear:none;">Hours</h5> <h5 style="display:inline;clear:none;">&ensp;&ensp;&ensp;</h5>  <h5 style="display:inline;clear:none;">Minutes</h5> <h5 style="display:inline;clear:none;">&ensp;&ensp;&ensp;</h5><h5 style="display:inline;clear:none;">Seconds</h5></div>
+                <br><br>
+                <input id="in1" class="in_data" type="number" placeholder="Hours">
+                <input id="in2" class="in_data" type="number" placeholder="Minutes">
+                <input id="in3" class="in_data" type="number" placeholder="Seconds">
+                <button id="mybutton">Set Timer</button>
+            </section>
+        </header>
+        
+        <!-- <p id="minute"></p>
+        <p id="seconds"></p> -->
+    </div>
+    <script src="mainpopup.js"></script>
+    <script src="background.js"></script>
+</body>
+
+</html>

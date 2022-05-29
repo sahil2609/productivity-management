@@ -1,0 +1,30 @@
+{
+    "manifest_version" : 2,
+    "name" : "Workonic - Productivity Management Extension",
+    "version" : "0.001",
+    "chrome_url_overrides": {
+        "newtab": "popup.html"
+    },
+    "options_page": "options.html",
+    "permissions":[
+        "storage",
+        "notifications",
+        "contextMenus",
+        "tabs",
+        "input",
+        "alarms",
+        "\u003Call_urls>",
+        "webRequest",
+        "activeTab",
+        "webRequestBlocking"
+    ],
+    "browser_action":{
+        "default_icon" : "image.png",
+        "default_popup": "mainpopup.html",
+        "default_title": "A popup"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true  
+    }
+}
